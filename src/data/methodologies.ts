@@ -1,0 +1,312 @@
+export interface UxMethodology {
+  id: string;
+  name: string;
+  storyIndex: 1 | 2 | 3 | 4 | 5;
+  storyName: 'Market Story' | 'Customer Story' | 'Technology Story' | 'User Story' | 'Success Story';
+  definition: string;
+  papadamiNote: string;
+  howToExecute: string[];
+  keyArtifacts: string[];
+  metricsProduced: string[];
+  exampleOutput: string;
+}
+
+export const UX_METHODOLOGIES: Record<string, UxMethodology> = {
+  // 1. Market Story
+  'competitive-analysis': {
+    id: 'competitive-analysis',
+    name: 'Competitive Analysis',
+    storyIndex: 1,
+    storyName: 'Market Story',
+    definition: 'Focuses on how competing products solve similar user problems by examining their UX, design patterns, features, Information Architecture (IA), strengths, and gaps.',
+    papadamiNote: 'Examines competitors through a designer’s lens—benchmarking layout patterns, cognitive load, navigation hierarchies, and monetization friction.',
+    howToExecute: [
+      'Audit 3-5 direct and indirect competitors across their core user journeys',
+      'Deconstruct UI design patterns (e.g. form-heavy vs. keyboard-first palettes)',
+      'Map Information Architecture gaps and visual hierarchy flaws',
+      'Evaluate pricing tiers and access barriers against user perceived value',
+    ],
+    keyArtifacts: ['Competitive IA Matrix', 'Design Pattern Tear-downs', 'Threat & Gap Radar'],
+    metricsProduced: ['Feature Parity %', 'Cognitive Load Rating', 'IA Depth Index'],
+    exampleOutput: 'Identified that legacy helpdesks hide telemetry behind nested tabs, creating an opening for a single-pane contextual inspector.',
+  },
+  'market-trend-analysis': {
+    id: 'market-trend-analysis',
+    name: 'Market Trend Analysis',
+    storyIndex: 1,
+    storyName: 'Market Story',
+    definition: 'Identify from the market what is gaining momentum, what is declining, and why those shifts matter for customer needs, competitive dynamics, and strategic decision‑making.',
+    papadamiNote: 'Distinguishes durable technological shifts from fleeting hype to ensure long-term product viability.',
+    howToExecute: [
+      'Synthesize analyst reports, engineering community shifts, and user adoption signals',
+      'Categorize trends into Gaining Momentum, Declining, or Emerging Shift',
+      'Extract strategic implications for UX architecture and feature roadmap',
+    ],
+    keyArtifacts: ['Trend Trajectory Radar', 'Momentum vs Decline Matrix', 'Strategic Implication Brief'],
+    metricsProduced: ['Trend Velocity', 'Market Adoption Curve Position', 'Strategic Risk Score'],
+    exampleOutput: 'Monolithic multi-field data entry forms are in decline; agentic co-pilots and command palettes are gaining strong momentum.',
+  },
+  'value-proposition-mapping': {
+    id: 'value-proposition-mapping',
+    name: 'Value Proposition Mapping',
+    storyIndex: 1,
+    storyName: 'Market Story',
+    definition: 'Why a customer chooses your product over alternatives and ensures the product is solving meaningful problems in a compelling way.',
+    papadamiNote: 'Guarantees direct alignment between customer jobs/pains/gains and our product features, pain relievers, and gain creators.',
+    howToExecute: [
+      'Catalog customer functional, emotional, and social jobs to be done',
+      'Map acute pains and friction against specific pain-reliever capabilities',
+      'Define unexpected gain creators that inspire organic customer advocacy',
+    ],
+    keyArtifacts: ['Value Proposition Canvas', 'Problem-Solution Fit Card', 'Differentiator Thesis'],
+    metricsProduced: ['Problem-Solution Alignment Score', 'Unique Value Score', 'Willingness-to-Pay Indicator'],
+    exampleOutput: 'Replaces 7-tab browser swapping with an automated contextual triage co-pilot with verified 1-click execution.',
+  },
+
+  // 2. Customer Story
+  'customer-interviews': {
+    id: 'customer-interviews',
+    name: 'Customer & Stakeholder Interviews',
+    storyIndex: 2,
+    storyName: 'Customer Story',
+    definition: 'Understand and uncover real-world problems, validate assumptions, and learn how customers currently solve the tasks/goals they are trying to achieve.',
+    papadamiNote: 'Direct discovery with diverse stakeholders—from frontline end-users to executive budget champions and security gatekeepers.',
+    howToExecute: [
+      'Conduct semi-structured interviews with 8-12 target operators and buyers',
+      'Map stakeholder influence, incentives, fears, and internal blockers',
+      'Document current workaround realities and manual coping mechanisms',
+    ],
+    keyArtifacts: ['Stakeholder Ecosystem Map', 'Workaround Dossier', 'Verbatim Quote Index'],
+    metricsProduced: ['Friction Severity Score', 'Pain Frequency (Daily/Weekly)', 'Influence Level'],
+    exampleOutput: 'Discovered that Tier 2 engineers spend 20 minutes copy-pasting JSON logs into private Slack channels for senior peer review.',
+  },
+  'service-blueprinting': {
+    id: 'service-blueprinting',
+    name: 'Service Blueprinting',
+    storyIndex: 2,
+    storyName: 'Customer Story',
+    definition: 'Shows how a service actually works, not just how it appears to users—bridging customer touchpoints with backstage processes.',
+    papadamiNote: 'Exposes the invisible operational machinery, supporting microservices, and handoffs behind every customer frontstage interaction.',
+    howToExecute: [
+      'Define customer actions along the timeline across key milestone stages',
+      'Draw the Line of Interaction to demarcate Frontstage Touchpoints',
+      'Draw the Line of Visibility to outline Backstage Processes and asynchronous jobs',
+      'Connect supporting databases, third-party APIs, and security filters',
+    ],
+    keyArtifacts: ['4-Tier Service Blueprint Matrix', 'Failure Point Highlight Map', 'Operational Handoff Diagram'],
+    metricsProduced: ['Process Cycle Time', 'Handoff Latency', 'System Dependency Count'],
+    exampleOutput: 'Mapped real-time telemetry ingestion through a SOC2 redaction gateway before triggering Gemini background diagnosis.',
+  },
+  'customer-journey-mapping': {
+    id: 'customer-journey-mapping',
+    name: 'Customer Journey Mapping',
+    storyIndex: 2,
+    storyName: 'Customer Story',
+    definition: 'Visually depict what the customer’s experience is from their perspective across time, channels, and interactions.',
+    papadamiNote: 'Tracks emotional fluctuations, expectations, and drop-off risks from initial trigger through core workflow to value realization.',
+    howToExecute: [
+      'Chart stages: Trigger -> Discovery -> Onboarding -> Core Workflow -> Value Realization',
+      'Plot emotional curve (Frustrated -> Skeptical -> Neutral -> Engaged -> Delighted)',
+      'Identify critical friction drops and frame actionable design opportunities',
+    ],
+    keyArtifacts: ['Emotional Journey Curve', 'Multi-channel Touchpoint Map', 'Opportunity Matrix'],
+    metricsProduced: ['Emotional Dip Velocity', 'Drop-off Vulnerability Index', 'Channel Transition Count'],
+    exampleOutput: 'Engineers experience high frustration during initial investigation; automated diagnostic cards convert anxiety into focused engagement.',
+  },
+
+  // 3. Technology Story
+  'feasibility-assessment': {
+    id: 'feasibility-assessment',
+    name: 'Feasibility Assessment (Benefit Cost Ratio - BCR)',
+    storyIndex: 3,
+    storyName: 'Technology Story',
+    definition: 'Evaluating whether a proposed product or feature can realistically be built given available technology, resources, time, and limitations. In short, a Benefit Cost Ratio (BCR / BCO).',
+    papadamiNote: 'Prevents over-engineering by quantifying UX benefit against technical cost before writing code.',
+    howToExecute: [
+      'Score UX and Business Benefit on a calibrated scale (1-10)',
+      'Score Engineering Complexity and Architectural Cost (1-10)',
+      'Calculate BCR = UX Benefit / Tech Cost with formal greenlight thresholds (>2.0x = Build Now)',
+      'Document technical constraints and explicit UX mitigations',
+    ],
+    keyArtifacts: ['BCR Calculation Ledger', 'Technical Constraint & Mitigation Log', 'Dependency Risk Board'],
+    metricsProduced: ['BCR Ratio (Benefit/Cost)', 'Feasibility Verdict', 'Implementation Complexity Score'],
+    exampleOutput: 'BCR of 2.24x confirms high ROI; mitigated 100k event/sec telemetry spikes via virtual windowing.',
+  },
+  'api-capability-review': {
+    id: 'api-capability-review',
+    name: 'API Capability Review',
+    storyIndex: 3,
+    storyName: 'Technology Story',
+    definition: 'Assess the functionality, limitations, and performance of an API to determine whether it can support the UX requirements. This is the best time for UX to support in API changes.',
+    papadamiNote: 'UX designers must actively negotiate API payloads and latency budgets rather than passively accepting backend limitations.',
+    howToExecute: [
+      'Review endpoint specifications against UI latency budgets (e.g. <100ms for search)',
+      'Define streaming / SSE patterns for AI inference to eliminate perceived wait times',
+      'Establish optimistic UI updates and background reconciliation queues',
+    ],
+    keyArtifacts: ['API Latency Budget Matrix', 'Payload Contract Specifications', 'Streaming SSE Architecture Map'],
+    metricsProduced: ['Latency Budget (ms)', 'Payload Size (KB)', 'Error Fallback SLA'],
+    exampleOutput: 'Configured Gemini 3.8 Flash streaming via SSE with <300ms first-token latency to stream diagnostic rationale progressively.',
+  },
+  'accessibility-audit': {
+    id: 'accessibility-audit',
+    name: 'Accessibility Audit (WCAG Compliance)',
+    storyIndex: 3,
+    storyName: 'Technology Story',
+    definition: 'Evaluate how well a UI and Design System supports people with disabilities and whether it meets established accessibility WCAG standards.',
+    papadamiNote: 'Ensures inclusivity, keyboard-first velocity, and strict compliance with WCAG 2.1 AA/AAA standards.',
+    howToExecute: [
+      'Audit color contrast ratios across all states (minimum 4.5:1 text, 3:1 graphical)',
+      'Verify non-trapping tab order and visible 2px high-contrast focus rings',
+      'Implement ARIA live regions for background diagnostic notifications',
+      'Test full screen reader parity using NVDA and VoiceOver',
+    ],
+    keyArtifacts: ['WCAG 2.1 Compliance Matrix', 'Keyboard Navigation Flowchart', 'Screen Reader Semantic Spec'],
+    metricsProduced: ['WCAG Compliance Level (AA/AAA)', 'Contrast Ratio Values', 'Tab Navigation Error Count'],
+    exampleOutput: 'Achieved WCAG 2.1 AA compliance with aria-live="polite" announcements for completed AI background telemetry analysis.',
+  },
+  'platform-capability-analysis': {
+    id: 'platform-capability-analysis',
+    name: 'Platform Capability Analysis',
+    storyIndex: 3,
+    storyName: 'Technology Story',
+    definition: 'What can this platform do today, what are its limits, and how does that shape what we can build?',
+    papadamiNote: 'Analyzes third-party ecosystem constraints (Zendesk APIs, cloud security policies, iframe boundaries) to shape realistic feature scopes.',
+    howToExecute: [
+      'Map platform boundary limits, rate-limit ceilings, and iframe sandbox restrictions',
+      'Design bidirectional sync mechanisms with webhook fallbacks',
+      'Define offline cache and graceful degradation behavior',
+    ],
+    keyArtifacts: ['Platform Constraint Ledger', 'Integration Security Spec', 'Fallback Strategy Document'],
+    metricsProduced: ['API Rate Limit Ceiling', 'Sync Discrepancy Tolerance', 'Cache Hit Ratio'],
+    exampleOutput: 'Architected local indexedDB caching to ensure immediate UI responsiveness despite Zendesk API throttling.',
+  },
+
+  // 4. User Story
+  'focus-groups-user-interviews': {
+    id: 'focus-groups-user-interviews',
+    name: 'Focus Groups & User Interviews',
+    storyIndex: 4,
+    storyName: 'User Story',
+    definition: 'Explore and uncover attitudes, perceptions, motivations, and reactions to a product, concept, or problem.',
+    papadamiNote: 'Builds deep empathy by synthesizing daily tasks, cognitive stressors, and mental models into rich, actionable personas.',
+    howToExecute: [
+      'Gather target personas in focused 60-minute participatory design sessions',
+      'Unpack daily task rituals, unstated fears, and perceived productivity barriers',
+      'Synthesize verbatim quotes and cognitive friction points into living personas',
+    ],
+    keyArtifacts: ['User Persona Cards', 'Mental Model Diagrams', 'Qualitative Sentiment Ledger'],
+    metricsProduced: ['Tech Savviness Rating', 'Task Frequency Index', 'Emotional Stress Level'],
+    exampleOutput: 'Synthesized Alex Rivera (Senior Tier 2 Engineer) and Priya Sharma (Operations Lead) personas.',
+  },
+  'usability-test-plan': {
+    id: 'usability-test-plan',
+    name: 'Usability Test Plan & Testing',
+    storyIndex: 4,
+    storyName: 'User Story',
+    definition: 'Create a plan that outlines how a usability test will be conducted. It defines objectives, goals, personas, tasks, and procedures to ensure the study is consistent, unbiased, and aligned with research objectives. Then start testing with target users.',
+    papadamiNote: 'Rigorous empirical validation with timed task scenarios and pass/fail thresholds before engineering freeze.',
+    howToExecute: [
+      'Draft standardized test protocol with explicit task scenarios and expected paths',
+      'Define maximum allowed completion times and error thresholds',
+      'Execute think-aloud moderated sessions with representative users',
+      'Administer post-task Single Ease Questions (SEQ 1-7) and full SUS questionnaire',
+    ],
+    keyArtifacts: ['Usability Test Script', 'Task Scenario Scorecard', 'Session Video Clips & Notes'],
+    metricsProduced: ['Task Completion Rate %', 'Time on Task (Seconds)', 'Single Ease Question (SEQ)'],
+    exampleOutput: 'Verified that support engineers identify root causes in <90 seconds with 100% completion across 8 test participants.',
+  },
+  'heuristic-evaluation': {
+    id: 'heuristic-evaluation',
+    name: 'Heuristic Evaluation (Jakob Nielsen)',
+    storyIndex: 4,
+    storyName: 'User Story',
+    definition: 'Evaluate whether a UI design has gaps and issues by using Jakob Nielsen’s 10 Usability Heuristics.',
+    papadamiNote: 'Exhaustive 10-point heuristic inspection identifying usability flaws before users ever encounter them.',
+    howToExecute: [
+      'Audit interface against each of the 10 Nielsen heuristics systematically',
+      'Tag statuses as Strong Strength, Pass, or Needs Attention',
+      'Formulate concrete, actionable design recommendations for every identified gap',
+    ],
+    keyArtifacts: ['10 Heuristics Scorecard', 'Severity-Ranked Finding List', 'Remediation Roadmap'],
+    metricsProduced: ['Heuristics Compliance Score', 'Severity Rating (1-4)', 'Friction Point Count'],
+    exampleOutput: 'Scored Strong Strength on Error Prevention by enforcing visual diff previews before live database mutations.',
+  },
+  'experience-insights': {
+    id: 'experience-insights',
+    name: 'Experience Insights (Telemetry & Digital Experience Platforms)',
+    storyIndex: 4,
+    storyName: 'User Story',
+    definition: 'Why users behave the way they do and highlight opportunities to improve the overall experience by collecting data using FullStory, Hotjar, and other similar digital experience platforms to take data-driven UX/UI decisions.',
+    papadamiNote: 'Transforms behavioral telemetry into continuous UX refinements through rage-click tracking and dead-end detection.',
+    howToExecute: [
+      'Instrument privacy-safe session recording and behavioral funnel tracking',
+      'Configure automated monitors for rage clicks, dead clicks, and rapid scroll thrashing',
+      'Correlate abandonment patterns directly with interface complexity triggers',
+    ],
+    keyArtifacts: ['Friction Telemetry Dashboard', 'Drop-off Funnel Visualizer', 'Rage-Click Heatmap'],
+    metricsProduced: ['Rage Click Rate', 'Step Drop-off %', 'Dwell Time per State'],
+    exampleOutput: 'Configured automated alerts if engineers abandon the AI suggestion drawer without copying or executing within 45 seconds.',
+  },
+
+  // 5. Success Story
+  'system-usability-scale': {
+    id: 'system-usability-scale',
+    name: 'System Usability Scale (SUS)',
+    storyIndex: 5,
+    storyName: 'Success Story',
+    definition: 'During usability testing, administer a 10‑item questionnaire invented by John Brooke to measure the perceived usability of a product, system, or interface. It assesses how easy a system is to use based on user feedback. >80.3 = Excellent, 68-80.3 = Good, 68 = OK, 51-68 = Poor, <51 = Awful.',
+    papadamiNote: 'The definitive gold standard for quantifying subjective ease of use into a standardized 0-100 benchmark score.',
+    howToExecute: [
+      'Administer the 10 standardized alternating positive/negative questions to users immediately following task completion',
+      'Calculate score: Odd items (score - 1) + Even items (5 - score) multiplied by 2.5',
+      'Classify against Papadami benchmark rating tiers (>80.3 Excellent, 68-80.3 Good, 68 OK, 51-68 Poor, <51 Awful)',
+      'Benchmark score against the industry average of 68.0',
+    ],
+    keyArtifacts: ['10-Item Brooke Survey Form', 'Calculated SUS Composite Score', 'Percentile Ranking Curve'],
+    metricsProduced: ['SUS Usability Score (0-100)', 'Rating Tier Classification', 'Percentile Benchmark'],
+    exampleOutput: 'Calculated SUS score of 85.0 places OmniDesk in the "Excellent" tier (>80.3) and top 5% of enterprise software.',
+  },
+  'net-promoter-score': {
+    id: 'net-promoter-score',
+    name: 'Net Promoter Score (NPS)',
+    storyIndex: 5,
+    storyName: 'Success Story',
+    definition: 'How loyal and satisfied are your customers and how strongly they advocate for your product, service, or brand. Create a survey and use an NPS calculator. NPS = % Promoters – % Detractors.',
+    papadamiNote: 'Measures whether users become passionate organic champions who recommend the product to colleagues.',
+    howToExecute: [
+      'Survey users: "How likely are you to recommend this product to a colleague on a scale of 0-10?"',
+      'Categorize into Promoters (9-10), Passives (7-8), and Detractors (0-6)',
+      'Calculate NPS = % Promoters - % Detractors',
+      'Establish proactive outreach workflows to turn passives into advocates',
+    ],
+    keyArtifacts: ['NPS Distribution Breakdown', 'Advocate Growth Strategy Plan', 'Detractor Feedback Triage'],
+    metricsProduced: ['NPS Index (-100 to +100)', '% Promoters', '% Detractors', '% Passives'],
+    exampleOutput: 'Targeted NPS of +58 with 68% promoters and an organic peer certification advocacy program.',
+  },
+  'kpi-kbi-results': {
+    id: 'kpi-kbi-results',
+    name: 'KPI & KBI Tracking',
+    storyIndex: 5,
+    storyName: 'Success Story',
+    definition: 'Measure how well a product, team, or business is performing against its goals (i.e key performance/business indicators). Track outcomes using exact formulas (Conversion rate = conversions ÷ total visitors, Retention = returning ÷ total, NPS = % promoters – % detractors).',
+    papadamiNote: 'Ties design decisions directly to boardroom business indicators and operational performance metrics.',
+    howToExecute: [
+      'Define exact formulas for Conversion, Retention, Resolution Velocity, and Burnout Reduction',
+      'Set target baselines, rolling measurement cadences, and ownership',
+      'Pair every business KPI with a leading Behavioral KBI (e.g. AI suggestion acceptance rate)',
+      'Formulate contingency corrective actions with lead times if goals are missed',
+    ],
+    keyArtifacts: ['KPI/KBI Executive Scorecard', 'Contingency Corrective Roadmap', 'ROI Business Case Model'],
+    metricsProduced: ['Conversion Rate %', 'Retention Rate %', 'MTTR Velocity (Minutes)', 'Payback Period (Months)'],
+    exampleOutput: 'Cut Mean Time to Resolution (MTTR) from 288 min to <65 min while sustaining a 74% AI suggestion acceptance rate.',
+  },
+};
+
+export const STORY_METHODOLOGIES_MAP: Record<number, string[]> = {
+  1: ['competitive-analysis', 'market-trend-analysis', 'value-proposition-mapping'],
+  2: ['customer-interviews', 'service-blueprinting', 'customer-journey-mapping'],
+  3: ['feasibility-assessment', 'api-capability-review', 'accessibility-audit', 'platform-capability-analysis'],
+  4: ['focus-groups-user-interviews', 'usability-test-plan', 'heuristic-evaluation', 'experience-insights'],
+  5: ['system-usability-scale', 'net-promoter-score', 'kpi-kbi-results'],
+};

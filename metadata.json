@@ -1,0 +1,8 @@
+{
+  "name": "E2E Product Design Studio",
+  "description": "AI-powered product design studio implementing John Papadami's E2E Product Design Framework across the 5 core stories to generate comprehensive, actionable data points.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}
